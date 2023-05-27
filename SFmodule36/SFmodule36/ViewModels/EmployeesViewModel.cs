@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SFmodule36.ViewModel
 {
-    class EmployeesViewModel : INotifyPropertyChanged, IEmployeesViewModel
+    public class EmployeesViewModel : INotifyPropertyChanged, IEmployeesViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -22,7 +22,7 @@ namespace SFmodule36.ViewModel
         private IEmployeeRepository _employeeRepository;
         public EmployeesViewModel(IEmployeeRepository employeeRepository)
         {
-            _employeeRepository = employeeRepository;
+            _employeeRepository = new EmployeeRepository();
             FillListView();
             FillFilterMessage();
         }

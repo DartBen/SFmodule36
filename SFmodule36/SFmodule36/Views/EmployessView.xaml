@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="EmployessView" Height="450" Width="1200">
     <Grid>
-        <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="1180" d:ItemsSource="{d:SampleData ItemCount=10}" Margin="0,82,0,0" Height="342" VerticalAlignment="Top">
+        <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="1180" Margin="0,82,0,0" Height="342" VerticalAlignment="Top" SelectedIndex="-1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="auto" DisplayMemberBinding="{Binding LastName}">

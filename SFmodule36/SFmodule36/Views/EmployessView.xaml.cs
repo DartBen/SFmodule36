@@ -1,4 +1,5 @@
 ﻿using SFmodule36.Models;
+using SFmodule36.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,10 @@ namespace SFmodule36.Views
     /// </summary>
     public partial class EmployessView : Window
     {
-        public EmployessView()
+        public EmployessView(IEmployeesViewModel employeesViewModel)
         {
             InitializeComponent();
+            DataContext = employeesViewModel;
         }
 
         private void ListView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
