@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SFmodule36.ViewModel
 {
-    class EmployeesViewModel : INotifyPropertyChanged
+    class EmployeesViewModel : INotifyPropertyChanged, IEmployeesViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -19,18 +19,15 @@ namespace SFmodule36.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        private EmployeeRepository _employeeRepository;
-        private ObservableCollection<Employee> _employees;
-        private string _filter;
-        private string _filterMessage;
-
-        public EmployeesViewModel()
+        private IEmployeeRepository _employeeRepository;
+        public EmployeesViewModel(IEmployeeRepository employeeRepository)
         {
-            _employeeRepository = new EmployeeRepository();
+            _employeeRepository = employeeRepository;
             FillListView();
             FillFilterMessage();
         }
 
+        private ObservableCollection<Employee> _employees;
         public ObservableCollection<Employee> Employees
         {
             get
@@ -44,6 +41,7 @@ namespace SFmodule36.ViewModel
             }
         }
 
+        private string _filter;
         public string Filter
         {
             get
@@ -58,6 +56,7 @@ namespace SFmodule36.ViewModel
             }
         }
 
+        private string _filterMessage;
         public string FilterMessage
         {
             get
@@ -75,13 +74,12 @@ namespace SFmodule36.ViewModel
             if (!String.IsNullOrEmpty(_filter))
             {
                 Employees = new ObservableCollection<Employee>(
-                  _employeeRepository
-                  .GetAll()
-                  .Where(v => v.FirstName.Contains(_filter)));
+                    _employeeRepository.GetAll()
+                    .Where(v => v.FirstName.Contains(_filter)));
             }
             else
                 Employees = new ObservableCollection<Employee>(
-                  _employeeRepository.GetAll());
+                    _employeeRepository.GetAll());
         }
 
         private void FillFilterMessage()

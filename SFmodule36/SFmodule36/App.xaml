@@ -1,9 +1,8 @@
 ﻿<Application x:Class="SFmodule36.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SFmodule36"
-             StartupUri="Views/EmployessView.xaml">
+             xmlns:local="clr-namespace:SFmodule36">
     <Application.Resources>
-         
+
     </Application.Resources>
 </Application>

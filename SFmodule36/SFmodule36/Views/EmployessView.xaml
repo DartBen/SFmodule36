@@ -7,11 +7,8 @@
         xmlns:vm="clr-namespace:SFmodule36.ViewModel"
         mc:Ignorable="d"
         Title="EmployessView" Height="450" Width="1200">
-    <Window.DataContext>
-        <vm:EmployeesViewModel></vm:EmployeesViewModel>
-    </Window.DataContext>
     <Grid>
-        <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="1180" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,82,0,0" Height="342" VerticalAlignment="Top">
+        <ListView PreviewMouseDoubleClick="ListView_PreviewMouseDoubleClick" ItemsSource="{Binding Employees, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="1180" d:ItemsSource="{d:SampleData ItemCount=10}" Margin="0,82,0,0" Height="342" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="auto" DisplayMemberBinding="{Binding LastName}">
@@ -36,6 +33,6 @@
             </ListView.View>
         </ListView>
         <TextBox Text="{Binding Filter, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
-
+        <TextBlock HorizontalAlignment="Left" Margin="172,15,0,0" TextWrapping="Wrap" Text="{Binding FilterMessage}" VerticalAlignment="Top"/>
     </Grid>
 </Window>
