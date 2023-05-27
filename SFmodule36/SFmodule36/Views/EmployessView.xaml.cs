@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SFmodule36.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,31 @@ namespace SFmodule36.Views
         public EmployessView()
         {
             InitializeComponent();
+        }
+
+        private void ListView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var item = (sender as ListView).SelectedItem;
+
+            if (item is null)
+            {
+                return;
+            }
+
+            var employee = item as Employee;
+
+            MessageBox.Show(Message(employee));
+        }
+
+        private string Message(Employee employee)
+        {
+
+            return "Имя: " + employee.FirstName + "\n" +
+                "Фамилия: " + employee.LastName + "\n" +
+                "Возраст: " + employee.Age + "\n" +
+                "Должность: " + employee.Position + "\n" +
+                "Компания: " + employee.CompanyName + "\n" +
+                "Город: " + employee.CityName;
         }
     }
 }
