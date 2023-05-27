@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SFmodule36.Views"
         mc:Ignorable="d"
-        Title="EmployessView" Height="450" Width="800">
+        Title="EmployessView" Height="450" Width="1200">
     <Grid>
-        
+        <ListView HorizontalAlignment="Center" Height="414" VerticalAlignment="Center" Width="1180" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="250">
+                        <GridViewColumnHeader Content="Фамилия"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="250">
+                        <GridViewColumnHeader Content="Имя"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="50">
+                        <GridViewColumnHeader Content="Возраст"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="250">
+                        <GridViewColumnHeader Content="Компания"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="250">
+                        <GridViewColumnHeader Content="Должность"></GridViewColumnHeader>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100">
+                        <GridViewColumnHeader Content="Город"></GridViewColumnHeader>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>
