@@ -86,8 +86,15 @@
     <Compile Include="Models\IEmployeeRepository.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeRepository.cs" />
+    <Compile Include="Models\ILogger.cs" />
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
     <Compile Include="ViewModels\IEmployeesViewModel.cs" />
+    <Compile Include="ViewModels\IEmployeeViewModel.cs" />
+    <Compile Include="Views\EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmployessView.xaml.cs">
       <DependentUpon>EmployessView.xaml</DependentUpon>
     </Compile>
@@ -103,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EmployessView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

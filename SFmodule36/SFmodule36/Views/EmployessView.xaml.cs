@@ -1,5 +1,6 @@
 ﻿using SFmodule36.Models;
 using SFmodule36.ViewModel;
+using SFmodule36.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,17 @@ namespace SFmodule36.Views
     /// </summary>
     public partial class EmployessView : Window
     {
-        public EmployessView(IEmployeesViewModel employeesViewModel)
+
+        IEmployeeViewModel _employeeViewModel;
+        IEmployeesViewModel _employeesViewModel;
+        public EmployessView(IEmployeesViewModel employeesViewModel, IEmployeeViewModel employeeViewModel)
         {
+
+            _employeeViewModel = employeeViewModel;
+            _employeesViewModel = employeesViewModel;
+
             InitializeComponent();
-            DataContext = employeesViewModel;
+            DataContext = _employeesViewModel;
         }
 
         private void ListView_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -36,9 +44,15 @@ namespace SFmodule36.Views
                 return;
             }
 
+
             var employee = item as Employee;
 
-            MessageBox.Show(Message(employee));
+            _employeeViewModel.Employee = employee;
+
+            var employeeView = new EmployeeView(
+                _employeeViewModel);
+
+            employeeView.Show();
         }
 
         private string Message(Employee employee)

@@ -1,6 +1,8 @@
 ﻿using SFmodule36.Models;
 using SFmodule36.ViewModel;
+using SFmodule36.ViewModels;
 using SFmodule36.Views;
+using System.ComponentModel;
 using System.Windows;
 using Unity;
 
@@ -17,7 +19,8 @@ namespace SFmodule36
 
             IUnityContainer unityContainer = new UnityContainer();
 
-
+            unityContainer.RegisterType<ILogger, Logger>();
+            unityContainer.RegisterType<IEmployeeViewModel, EmployeeViewModel>();
             unityContainer.RegisterType<IEmployeesViewModel, EmployeesViewModel>();
             unityContainer.RegisterType<IEmployeeRepository, EmployeeRepository>();
 
